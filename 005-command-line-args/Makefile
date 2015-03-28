@@ -1,0 +1,2 @@
+main:
+	javac Command.java
