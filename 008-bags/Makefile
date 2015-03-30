@@ -1,0 +1,2 @@
+main:
+	javac Bag.java
