@@ -30,6 +30,10 @@ public class Stack<Item> {
     return popped;
   }
 
+  public Item peek() {
+    return first.item;
+  }
+
   public static void main(String[] argv) {
     Stack<Integer> stack = new Stack<Integer>();
 
