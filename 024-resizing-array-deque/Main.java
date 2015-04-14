@@ -2,6 +2,7 @@ public class Main {
   public static void main(String[] argv) {
     ResizingArrayDeque<Integer> deque = new ResizingArrayDeque<Integer>(1);
 
+    StdOut.printf("Yo");
     while (!StdIn.isEmpty()) {
       int i = StdIn.readInt();
 
