@@ -1,0 +1,50 @@
+#!/usr/bin/env ruby
+
+require "optparse"
+require "fileutils"
+require "pry"
+
+options = {}
+OptionParser.new do |opts|
+  opts.on("-nNUMBER", "--number=NUMBER", "Generate a random union find test file with N components") do |n|
+    options[:number] = n.split(/\D/).reject { |d| d.empty? }.join("").to_i
+  end
+end.parse!
+
+unless options[:number]
+  puts "You must provide -nNUMBER of components to generate"
+  exit
+end
+
+class UnionFindGenerator
+  def generate(n)
+    (n).times.map do |_|
+      [1, 2].map do |_|
+        generate_random(n)
+      end
+    end
+  end
+
+private
+  def generate_random(n)
+    (rand*n).floor
+  end
+end
+
+def union_name(number)
+  "uf_#{number}.union"
+end
+
+def connected_name(number)
+  "uf_#{number}.connected"
+end
+
+`echo #{options[:number]} > #{union_name(options[:number])}`
+
+union_components = UnionFindGenerator.new.generate(options[:number]).map { |c| c.join(" ") }.join("\n")
+connected_components = UnionFindGenerator.new.generate(options[:number]).map { |c| c.join(" ") }.join("\n")
+
+File.open(union_name(options[:number]), "a") { |f| f.write(union_components) }
+
+FileUtils.touch(connected_name(options[:number]))
+File.open(connected_name(options[:number]), "a") { |f| f.write(connected_components) }
