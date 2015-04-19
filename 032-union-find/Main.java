@@ -1,9 +1,9 @@
 public class Main {
   public static void main(String[] argv) {
-    int totalComponents  = Integer.parseInt(StdIn.readLine());
-    QuickUnion qu         = new QuickUnion(totalComponents);
-    Stopwatch unionTimer = new Stopwatch();
-    String line          = "";
+    int totalComponents   = Integer.parseInt(StdIn.readLine());
+    WeightedQuickUnion qu = new WeightedQuickUnion(totalComponents);
+    Stopwatch unionTimer  = new Stopwatch();
+    String line           = "";
 
     while (!StdIn.isEmpty() && !(line = StdIn.readLine()).equals("connected")) {
       String[] components = line.split(" ");

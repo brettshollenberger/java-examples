@@ -1,0 +1,49 @@
+Test: 2000
+cat uf_2000.union connected uf_2000.connected | java Main
+Unions: 0.034000
+Connected: 0.011000
+
+Test: 4000
+cat uf_4000.union connected uf_4000.connected | java Main
+Unions: 0.049000
+Connected: 0.022000
+
+Test: 8000
+cat uf_8000.union connected uf_8000.connected | java Main
+Unions: 0.072000
+Connected: 0.035000
+
+Test: 16000
+cat uf_16000.union connected uf_16000.connected | java Main
+Unions: 0.104000
+Connected: 0.048000
+
+Test: 32000
+cat uf_32000.union connected uf_32000.connected | java Main
+Unions: 0.194000
+Connected: 0.124000
+
+Test: 64000
+cat uf_64000.union connected uf_64000.connected | java Main
+Unions: 0.283000
+Connected: 0.130000
+
+Test: 128000
+cat uf_128000.union connected uf_128000.connected | java Main
+Unions: 0.389000
+Connected: 0.176000
+
+Test: 256000
+cat uf_256000.union connected uf_256000.connected | java Main
+Unions: 0.572000
+Connected: 0.344000
+
+Test: 512000
+cat uf_512000.union connected uf_512000.connected | java Main
+Unions: 0.936000
+Connected: 0.589000
+
+Test: 1024000
+cat uf_1024000.union connected uf_1024000.connected | java Main
+Unions: 1.534000
+Connected: 1.074000
