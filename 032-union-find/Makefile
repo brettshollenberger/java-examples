@@ -4,12 +4,7 @@ JC = javac
 .java.class:
 	$(JC) $(JFLAGS) $*.java
 
-CLASSES = \
-					QuickFind.java \
-					QuickUnion.java \
-					Stopwatch.java \
-					WeightedQuickUnion.java \
-					Main.java
+CLASSES = $(wildcard ./*.java)
 
 TESTFILES = uf_2000.union \
 						uf_4000.union \
@@ -26,7 +21,7 @@ TESTFILES = uf_2000.union \
 
 default: classes
 
-test: testfiles
+test: classes testfiles
 	./test
 
 testfiles: rm_tests $(TESTFILES)
@@ -35,7 +30,7 @@ rm_tests:
 	rm *.union *.connected
 
 %.union:
-	./generateN -n $@
+	./generateN -n $(patsubst uf_%.union, %, $@)
 
 classes: $(CLASSES:.java=.class)
 

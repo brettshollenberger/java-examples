@@ -1,7 +1,7 @@
 public class Main {
   public static void main(String[] argv) {
     int totalComponents   = Integer.parseInt(StdIn.readLine());
-    WeightedQuickUnion qu = new WeightedQuickUnion(totalComponents);
+    WeightedQuickUnionPathCompression qu = new WeightedQuickUnionPathCompression(totalComponents);
     Stopwatch unionTimer  = new Stopwatch();
     String line           = "";
 
