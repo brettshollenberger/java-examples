@@ -13,13 +13,13 @@ public class PercolationStats {
   private static void experiment(int gridWidth, int numberTrials) {
     double[] trials = new double[numberTrials];
 
-    StdOut.printf("%10s %10s \n", "n", "percent sites opened");
+    // StdOut.printf("%10s %10s \n", "n", "percent sites opened");
 
     for (int i = 0; i < numberTrials; i++) {
       double trial = runTrial(gridWidth);
       trials[i] = trial;
 
-      StdOut.printf("%10d %10f \n", i, trial);
+      // StdOut.printf("%10d %10f \n", i, trial);
     }
 
     StdOut.println();
@@ -42,7 +42,9 @@ public class PercolationStats {
 
     KnuthShuffler.shuffle(randomIndices);
 
-    for (int i = 0; !perc.percolates(); i++) { perc.open(randomIndices[i]); }
+    for (int i = 0; !perc.percolates(); i++) { 
+      perc.open(randomIndices[i]); 
+    }
 
     return perc.percentSitesOpen();
   }

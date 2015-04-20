@@ -153,10 +153,12 @@ public class Percolation {
         // j is smaller
         components[jsRoot].parent = isRoot;
         sizes[isRoot] += jsSize;
+        if (components[jsRoot].status == full()) { components[isRoot].status = full(); }
       } else {
         // i is smaller
         components[isRoot].parent = jsRoot;
         sizes[jsRoot] += isSize;
+        if (components[isRoot].status == full()) { components[jsRoot].status = full(); }
       }
     }
   }
