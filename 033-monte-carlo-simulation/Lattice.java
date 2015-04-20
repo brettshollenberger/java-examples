@@ -14,6 +14,22 @@ public class Lattice {
     }
   }
 
+  public boolean connected(int i, int j) {
+    return find(i) == find(j);
+  }
+
+  public boolean percolates() {
+    for (int i = 0; i < size; i++) {
+      for (int j = ((size*size)-size); j < (size*size); j++) {
+        if (connected(i, j)) {
+          return true;
+        }
+      }
+    }
+
+    return false;
+  }
+
   public void open(int i) {
     unblock(i);
     connectLeft(i);
@@ -85,9 +101,5 @@ public class Lattice {
   private int find(int i) {
     while (components[i] != sentinel() && components[i] != i) { i = components[i]; }
     return i;
-  }
-
-  public boolean connected(int i, int j) {
-    return find(i) == find(j);
   }
 }
