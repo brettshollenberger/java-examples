@@ -4,6 +4,7 @@ public class Percolation {
   private int size;
   private Component[] components;
   private int[] sizes;
+  private int openSites = 0;
 
   public class Component {
     int parent;
@@ -80,6 +81,8 @@ public class Percolation {
   public void open(int col, int row) {
     int index = rowColToIndex(row, col);
 
+    openSites += 1;
+
     components[index].status = open();
 
     for (int neighbor : components[index].neighbors) {
@@ -87,6 +90,10 @@ public class Percolation {
     }
 
     fill(index);
+  }
+
+  public double percentSitesOpen() {
+    return (float) openSites / (size*size);
   }
 
   private boolean inFirstRow(int index) {
