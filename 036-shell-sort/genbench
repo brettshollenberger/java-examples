@@ -1,0 +1,28 @@
+#!/usr/bin/env ruby
+
+require "optparse"
+require "rake"
+require "pry"
+
+options = {}
+OptionParser.new do |opts|
+  opts.on("-nNUMBER", "--number=NUMBER", "Generate a random bench with N integers to sort") do |n|
+    options[:number] = n.split(/\D/).reject { |d| d.empty? }.join("").to_i
+  end
+end.parse!
+
+unless options[:number]
+  puts "You must provide -nNUMBER of components to generate"
+  exit
+end
+
+def gen_rand(n)
+  (rand*n).floor
+end
+
+nums = (0..options[:number]).map do |i|
+  gen_rand(options[:number])
+end
+
+sh "echo #{options[:number]} > bench/#{options[:number]}.bench"
+File.open("bench/#{(options[:number])}.bench", "a") { |f| f.write(nums.join("\n")) }

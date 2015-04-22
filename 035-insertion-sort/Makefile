@@ -1,7 +1,7 @@
 JC         = javac
 JFLAGS     = -g
-CLASSFILES = $(patsubst %.java, %.class, $(wildcard ./*.java))
 TESTDIR    = test
+CLASSFILES = $(patsubst %.java, %.class, $(wildcard ./*.java))
 TESTFILES  = $(patsubst %.java, %.class, $(wildcard $(TESTDIR)/*.java))
 
 default: classes
